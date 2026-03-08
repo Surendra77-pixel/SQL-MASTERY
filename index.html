@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SQL Mastery Roadmap — Complete Learning Resources</title>
+<meta name="description" content="The complete SQL learning roadmap from beginner to expert — curated resources, timeline, and tools."/>
+<meta property="og:title" content="SQL Mastery Roadmap 2024"/>
+<meta property="og:description" content="225+ hours of curated SQL resources. Beginner to Expert. Free & paid."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #07080f;
+    --bg2:       #0c0e1a;
+    --bg3:       #11142b;
+    --line:      rgba(255,255,255,0.07);
+    --text:      #dde1f0;
+    --muted:     #5a6080;
+    --faint:     rgba(255,255,255,0.04);
+
+    --c1: #00C9A7;   /* beginner   – mint   */
+    --c2: #4A9EFF;   /* intermediate – blue  */
+    --c3: #FF6B35;   /* advanced   – orange */
+    --c4: #C77DFF;   /* expert     – violet */
+    --c5: #FFD166;   /* ongoing    – gold   */
+
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif:   'Instrument Serif', serif;
+    --font-mono:    'DM Mono', monospace;
+    --font-cond:    'Barlow Condensed', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #1e2540; border-radius: 3px; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+  }
+  @keyframes pulse-ring {
+    0%,100% { transform: scale(1); opacity:.4; }
+    50%      { transform: scale(1.5); opacity:0; }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes glow-in {
+    from { opacity: 0; filter: blur(8px); }
+    to   { opacity: 1; filter: blur(0); }
+  }
+
+  .fade-up { animation: fadeUp .6s ease both; }
+  .delay-1 { animation-delay: .1s; }
+  .delay-2 { animation-delay: .2s; }
+  .delay-3 { animation-delay: .3s; }
+  .delay-4 { animation-delay: .4s; }
+  .delay-5 { animation-delay: .5s; }
+
+  /* ─── TICKER ─── */
+  .ticker-wrap {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+  }
+  .ticker-inner span {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    letter-spacing: .15em;
+    color: var(--muted);
+    padding: 0 30px;
+    text-transform: uppercase;
+  }
+  .ticker-inner span.hl { color: var(--c1); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 60px;
+    overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,201,167,.12), transparent 70%);
+    top: -200px; right: -150px;
+    pointer-events: none;
+    animation: glow-in 1.5s ease both;
+  }
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,158,255,.08), transparent 70%);
+    bottom: 0; left: 0;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--c1);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--c1);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 120px);
+    line-height: .92;
+    letter-spacing: .03em;
+    color: #fff;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .hero-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    background: linear-gradient(90deg, var(--c1), var(--c2));
+    background-clip: text;
+   -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sub {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 44px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    letter-spacing: .06em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-family: var(--font-cond);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cta-btn {
+    font-family: var(--font-cond);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cta-primary {
+    background: var(--c1);
+    color: #000;
+    border: 2px solid var(--c1);
+  }
+  .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,201,167,.35); }
+  .cta-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid rgba(255,255,255,.15);
+  }
+  .cta-ghost:hover { border-color: rgba(255,255,255,.4); transform: translateY(-2px); }
+
+  /* ─── PHASE STRIP ─── */
+  .phase-strip {
+    display: flex;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .phase-strip-item {
+    flex: 1;
+    padding: 18px 24px;
+    border-right: 1px solid var(--line);
+    cursor: pointer;
+    transition: background .2s;
+    text-decoration: none;
+    display: block;
+  }
+  .phase-strip-item:last-child { border-right: none; }
+  .phase-strip-item:hover { background: var(--faint); }
+  .psi-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: .06em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .psi-label {
+    font-family: var(--font-cond);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+
+  /* ─── SECTION HEADING ─── */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 70px 0 40px;
+    position: relative;
+  }
+  .sh-num {
+    font-family: var(--font-display);
+    font-size: 80px;
+    letter-spacing: .04em;
+    opacity: .07;
+    line-height: 1;
+    user-select: none;
+    position: absolute;
+    right: 0; top: 50px;
+  }
+  .sh-badge {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+
+  .sh-phase {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .sh-title {
+    font-family: var(--font-display);
+    font-size: 38px;
+    letter-spacing: .04em;
+    color: #fff;
+    line-height: 1;
+  }
+  .sh-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: var(--font-cond);
+    letter-spacing: .08em;
+  }
+
+  /* ─── DIVIDER ─── */
+  .phase-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--line), transparent);
+    margin: 0;
+  }
+
+  /* ─── CATEGORY LABEL ─── */
+  .cat-label {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 0 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* ─── RESOURCE GRID ─── */
+  .res-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  /* ─── RESOURCE CARD ─── */
+  .card {
+    background: var(--faint);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: all .22s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0; border-radius: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .22s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,.14);
+    background: rgba(255,255,255,.05);
+  }
+  .card:hover::after { opacity: 1; }
+
+  .card-top { display: flex; gap: 12px; align-items: flex-start; }
+  .card-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .card-info { flex: 1; }
+  .card-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #e8ecfa;
+    line-height: 1.4;
+    margin-bottom: 3px;
+    font-family: var(--font-mono);
+  }
+  .card-provider {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: var(--font-cond);
+    letter-spacing: .06em;
+  }
+
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .tag {
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-family: var(--font-cond);
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .tag-free { background: rgba(0,201,167,.14); color: var(--c1); }
+  .tag-paid { background: rgba(255,107,53,.14); color: var(--c3); }
+  .tag-time { background: rgba(255,255,255,.06); color: #8896b0; }
+
+  .card-why {
+    font-size: 11.5px;
+    color: #8896b0;
+    line-height: 1.65;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,.05);
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    transition: all .18s;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+  .card-link:hover { transform: translateX(3px); }
+  .card-link svg { width: 11px; height: 11px; }
+
+  .stars { color: #FFD166; font-size: 10px; letter-spacing: .05em; }
+
+  /* ─── MILESTONE ─── */
+  .milestone {
+    padding: 24px 28px;
+    border-radius: 14px;
+    margin: 10px 0 60px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .milestone-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .milestone-label {
+    font-family: var(--font-cond);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .milestone-text {
+    font-size: 13px;
+    color: #a8b4cc;
+    line-height: 1.7;
+  }
+
+  /* ─── TIMELINE VISUAL ─── */
+  .timeline-section { padding: 80px 0 40px; }
+  .tl-heading {
+    font-family: var(--font-display);
+    font-size: 48px;
+    letter-spacing: .05em;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .tl-sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--font-cond);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .tl-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2px;
+    position: relative;
+  }
+  .tl-week-col {
+    width: 120px;
+    flex-shrink: 0;
+    padding: 18px 16px 18px 0;
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: .06em;
+    color: var(--muted);
+    text-align: right;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .tl-dot {
+    position: absolute;
+    right: -7px; top: 24px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+  .tl-content {
+    flex: 1;
+    padding: 18px 0 18px 28px;
+  }
+  .tl-title {
+    font-family: var(--font-cond);
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .tl-topics {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .tl-topic {
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-family: var(--font-cond);
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tl-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ─── FREE STARTER STRIP ─── */
+  .starter-strip {
+    background: linear-gradient(135deg, rgba(0,201,167,.08), rgba(74,158,255,.06));
+    border: 1px solid rgba(0,201,167,.2);
+    border-radius: 16px;
+    padding: 36px 44px;
+    margin: 60px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .starter-strip::before {
+    content: 'START HERE';
+    position: absolute;
+    right: 40px; top: 26px;
+    font-family: var(--font-display);
+    font-size: 64px;
+    letter-spacing: .06em;
+    opacity: .04;
+    color: #fff;
+    pointer-events: none;
+  }
+  .starter-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    letter-spacing: .05em;
+    color: var(--c1);
+    margin-bottom: 6px;
+  }
+  .starter-sub {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .starter-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .step-card {
+    background: rgba(0,0,0,.3);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 10px;
+    padding: 16px;
+    text-decoration: none;
+    transition: all .2s;
+    display: block;
+  }
+  .step-card:hover { transform: translateY(-2px); border-color: var(--c1); }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: .06em;
+    color: var(--c1);
+    opacity: .6;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .step-name {
+    font-size: 12px;
+    color: #e0e6f5;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  .step-meta {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: var(--font-cond);
+    letter-spacing: .06em;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--muted);
+    font-size: 11px;
+    font-family: var(--font-cond);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: .1em;
+    color: #fff;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:768px) {
+    .hero { padding: 60px 24px 40px; }
+    .container { padding: 0 20px; }
+    .phase-strip { flex-direction: column; }
+    .phase-strip-item { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-stats { gap: 24px; }
+    .res-grid { grid-template-columns: 1fr; }
+    .tl-week-col { width: 80px; font-size: 16px; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="hl">◈ BEGINNER</span><span>SELECT · WHERE · JOIN · GROUP BY · ORDER BY</span>
+    <span class="hl">◆ INTERMEDIATE</span><span>CTEs · WINDOW FUNCTIONS · NORMALIZATION · INDEXES</span>
+    <span class="hl">◉ ADVANCED</span><span>TRANSACTIONS · STORED PROCEDURES · TRIGGERS</span>
+    <span class="hl">◎ EXPERT</span><span>QUERY OPTIMIZATION · PARTITIONING · DATA WAREHOUSE</span>
+    <span class="hl">◈ BEGINNER</span><span>SELECT · WHERE · JOIN · GROUP BY · ORDER BY</span>
+    <span class="hl">◆ INTERMEDIATE</span><span>CTEs · WINDOW FUNCTIONS · NORMALIZATION · INDEXES</span>
+    <span class="hl">◉ ADVANCED</span><span>TRANSACTIONS · STORED PROCEDURES · TRIGGERS</span>
+    <span class="hl">◎ EXPERT</span><span>QUERY OPTIMIZATION · PARTITIONING · DATA WAREHOUSE</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="container" style="position:relative;">
+    <div class="hero-eyebrow fade-up">SQL Mastery Roadmap</div>
+
+    <div class="fade-up" style="
+      display:inline-flex; align-items:center; gap:10px;
+      background:linear-gradient(135deg,rgba(0,201,167,.12),rgba(74,158,255,.08));
+      border:1px solid rgba(0,201,167,.3);
+      border-radius:30px;
+      padding:8px 18px;
+      margin-bottom:22px;
+    ">
+      <span style="
+        width:30px;height:30px;border-radius:50%;
+        background:linear-gradient(135deg,var(--c1),var(--c2));
+        display:flex;align-items:center;justify-content:center;
+        font-family:var(--font-display);font-size:14px;color:#000;
+        flex-shrink:0;
+      ">S</span>
+      <span style="font-family:var(--font-cond);font-size:13px;letter-spacing:.1em;text-transform:uppercase;">
+        Built by <strong style="color:var(--c1)">Surendra Manthri</strong>
+      </span>
+      <span style="font-size:10px;color:var(--muted);font-family:var(--font-cond);letter-spacing:.08em;">· FULL STACK AI DEVELOPER</span>
+    </div>
+
+    <h1 class="hero-title fade-up delay-1">
+      MASTER<br/><em>SQL</em><br/>FROM ZERO
+    </h1>
+
+    <p class="hero-sub fade-up delay-2">
+      A complete, battle-tested learning path to take you from writing your first SELECT to architecting production-grade database systems — with every resource ranked and linked.
+    </p>
+
+    <div class="hero-stats fade-up delay-3">
+      <div class="stat-item">
+        <div class="stat-num" style="color:var(--c1)">225+</div>
+        <div class="stat-label">Hours of Content</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" style="color:var(--c2)">40+</div>
+        <div class="stat-label">Curated Resources</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" style="color:var(--c3)">5</div>
+        <div class="stat-label">Learning Phases</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" style="color:var(--c4)">4</div>
+        <div class="stat-label">Skill Levels</div>
+      </div>
+    </div>
+
+    <div class="cta-row fade-up delay-4">
+      <a href="#beginner" class="cta-btn cta-primary">Start Learning ↓</a>
+      <a href="#timeline" class="cta-btn cta-ghost">View Timeline →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE STRIP -->
+<nav class="phase-strip">
+  <a href="#beginner" class="phase-strip-item">
+    <div class="psi-num" style="color:var(--c1)">01</div>
+    <div class="psi-label" style="color:var(--c1)">Beginner · Wk 1–3</div>
+  </a>
+  <a href="#intermediate" class="phase-strip-item">
+    <div class="psi-num" style="color:var(--c2)">02</div>
+    <div class="psi-label" style="color:var(--c2)">Intermediate · Wk 4–7</div>
+  </a>
+  <a href="#advanced" class="phase-strip-item">
+    <div class="psi-num" style="color:var(--c3)">03</div>
+    <div class="psi-label" style="color:var(--c3)">Advanced · Wk 8–11</div>
+  </a>
+  <a href="#expert" class="phase-strip-item">
+    <div class="psi-num" style="color:var(--c4)">04</div>
+    <div class="psi-label" style="color:var(--c4)">Expert · Wk 12–16</div>
+  </a>
+  <a href="#ongoing" class="phase-strip-item">
+    <div class="psi-num" style="color:var(--c5)">∞</div>
+    <div class="psi-label" style="color:var(--c5)">Ongoing · Forever</div>
+  </a>
+</nav>
+
+
+<!-- ═══════════════════════════════════ -->
+<!--  PHASE 1 — BEGINNER                -->
+<!-- ═══════════════════════════════════ -->
+<section id="beginner">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-badge" style="background:rgba(0,201,167,.15)">◈</div>
+      <div class="sh-info">
+        <div class="sh-phase" style="color:var(--c1)">Phase 01 — Beginner</div>
+        <div class="sh-title" style="color:var(--c1)">FOUNDATIONS</div>
+        <div class="sh-meta">Weeks 1–3 &nbsp;·&nbsp; ~45 hrs &nbsp;·&nbsp; SELECT · WHERE · JOINs · Aggregates</div>
+      </div>
+      <div class="sh-num" style="color:var(--c1)">01</div>
+    </div>
+
+    <!-- Video Courses -->
+    <div class="cat-label">📹 Video Courses</div>
+    <div class="res-grid">
+
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">🎬</div>
+          <div class="card-info">
+            <div class="card-name">SQL Tutorial – Full Database Course for Beginners</div>
+            <div class="card-provider">freeCodeCamp · YouTube</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 4.5 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Best single free video to start with. Covers all fundamentals using PostgreSQL. Zero fluff — pure hands-on SQL from minute one.</div>
+        <a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">🏫</div>
+          <div class="card-info">
+            <div class="card-name">Intro to SQL: Querying and Managing Data</div>
+            <div class="card-provider">Khan Academy</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 6–8 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Interactive browser-based SQL. Zero setup required. Perfect for absolute beginners — type SQL directly in the browser and see instant results.</div>
+        <a href="https://www.khanacademy.org/computing/computer-programming/sql" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">🎓</div>
+          <div class="card-info">
+            <div class="card-name">The Complete SQL Bootcamp (Jose Portilla)</div>
+            <div class="card-provider">Udemy</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$15</span>
+          <span class="tag tag-time">⏱ 9 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Most popular paid SQL course on the internet. PostgreSQL-focused with great real-world exercises. Best value for money.</div>
+        <a href="https://www.udemy.com/course/the-complete-sql-bootcamp/" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Interactive Practice -->
+    <div class="cat-label">🌐 Interactive Practice</div>
+    <div class="res-grid">
+
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">🐘</div>
+          <div class="card-info">
+            <div class="card-name">SQLZoo — Interactive SQL Exercises</div>
+            <div class="card-provider">sqlzoo.net</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 10–15 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Run-in-browser exercises that get progressively harder. Every core SQL concept covered with instant feedback. A classic for a reason.</div>
+        <a href="https://sqlzoo.net/" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">📊</div>
+          <div class="card-info">
+            <div class="card-name">Mode SQL Tutorial</div>
+            <div class="card-provider">mode.com/sql-tutorial</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 8 hrs</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+        <div class="card-why">Business analytics focus with real datasets. Excellent if you're on the data analyst career track. Teaches SQL the way analysts actually use it.</div>
+        <a href="https://mode.com/sql-tutorial/" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">🔧</div>
+          <div class="card-info">
+            <div class="card-name">DB Fiddle — Browser SQL Sandbox</div>
+            <div class="card-provider">db-fiddle.com</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ Instant</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Zero-install browser SQL sandbox. Try any query instantly, share with others. Your daily scratchpad for experimenting with SQL.</div>
+        <a href="https://www.db-fiddle.com/" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Books & Tools -->
+    <div class="cat-label">📚 Books & 🛠 Tools</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">📖</div>
+          <div class="card-info">
+            <div class="card-name">Learning SQL, 3rd Edition</div>
+            <div class="card-provider">Alan Beaulieu — O'Reilly</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$50</span>
+          <span class="tag tag-time">⏱ Self-paced</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">The definitive SQL beginner book. Clear, comprehensive explanations with MySQL & Oracle examples. Read alongside your video course.</div>
+        <a href="https://www.oreilly.com/library/view/learning-sql-3rd/9781492057604/" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+      <div class="card" style="border-top:2px solid var(--c1)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(0,201,167,.12)">🐘</div>
+          <div class="card-info">
+            <div class="card-name">PostgreSQL + pgAdmin</div>
+            <div class="card-provider">postgresql.org</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 30 min setup</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Install this first, before anything else. PostgreSQL is the best SQL dialect to learn on. pgAdmin gives you a full GUI. One install, maximum power.</div>
+        <a href="https://www.postgresql.org/download/" target="_blank" class="card-link" style="background:rgba(0,201,167,.12);color:var(--c1);border:1px solid rgba(0,201,167,.25)">
+          Download Free <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="milestone" style="background:linear-gradient(135deg,rgba(0,201,167,.08),transparent);border:1px solid rgba(0,201,167,.25)">
+      <div class="milestone-icon" style="background:rgba(0,201,167,.15)">🎯</div>
+      <div>
+        <div class="milestone-label" style="color:var(--c1)">Phase 1 Milestone — Before Moving On</div>
+        <div class="milestone-text">Write a 5-table e-commerce schema with proper JOINs, GROUP BY, HAVING, and ORDER BY entirely from memory. No looking at notes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="phase-divider"></div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!--  PHASE 2 — INTERMEDIATE           -->
+<!-- ═══════════════════════════════════ -->
+<section id="intermediate">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-badge" style="background:rgba(74,158,255,.15)">◆</div>
+      <div class="sh-info">
+        <div class="sh-phase" style="color:var(--c2)">Phase 02 — Intermediate</div>
+        <div class="sh-title" style="color:var(--c2)">POWER QUERIES</div>
+        <div class="sh-meta">Weeks 4–7 &nbsp;·&nbsp; ~60 hrs &nbsp;·&nbsp; CTEs · Window Functions · Design · Indexing</div>
+      </div>
+      <div class="sh-num" style="color:var(--c2)">02</div>
+    </div>
+
+    <div class="cat-label">📹 Video Courses</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">🪟</div>
+          <div class="card-info">
+            <div class="card-name">Window Functions Explained (Playlist)</div>
+            <div class="card-provider">Socratica · YouTube</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 2 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">The clearest visual explanation of OVER, PARTITION BY, RANK, LAG, and LEAD on all of YouTube. Watch this before any other window function resource.</div>
+        <a href="https://www.youtube.com/watch?v=H6OTMoXjNiM" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">🎓</div>
+          <div class="card-info">
+            <div class="card-name">Advanced SQL for Data Scientists</div>
+            <div class="card-provider">LinkedIn Learning</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">LinkedIn Premium</span>
+          <span class="tag tag-time">⏱ 3 hrs</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+        <div class="card-why">Industry-standard coverage of window functions, CTEs, and analytical queries — explained brilliantly with data science use cases.</div>
+        <a href="https://www.linkedin.com/learning/advanced-sql-for-data-scientists" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">🎓</div>
+          <div class="card-info">
+            <div class="card-name">PostgreSQL: Advanced SQL Queries</div>
+            <div class="card-provider">Udemy</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$15</span>
+          <span class="tag tag-time">⏱ 5 hrs</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+        <div class="card-why">Deep dive into window functions and CTEs specifically for PostgreSQL. Exercises are dense and practical. A great pair with the Socratica videos.</div>
+        <a href="https://www.udemy.com/course/postgresql-advanced-sql/" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-label">🌐 Practice Platforms — Interview Prep Begins Here</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">⚡</div>
+          <div class="card-info">
+            <div class="card-name">LeetCode Database Problems</div>
+            <div class="card-provider">leetcode.com/problemset/database</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-time">⏱ Ongoing</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">#1 platform for SQL interview prep. 200+ problems, real company tags (Google, Meta, Amazon). The medium-level problems will make you a solid intermediate. Essential.</div>
+        <a href="https://leetcode.com/problemset/database/" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Start Solving <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">🎯</div>
+          <div class="card-info">
+            <div class="card-name">StrataScratch</div>
+            <div class="card-provider">stratascratch.com</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ Ongoing</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Real SQL interview questions from Google, Amazon, Meta, Netflix. Heavy on window functions. The closest thing to actual FAANG interviews you'll find for free.</div>
+        <a href="https://www.stratascratch.com/" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Start Solving <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">🔗</div>
+          <div class="card-info">
+            <div class="card-name">Use The Index, Luke!</div>
+            <div class="card-provider">use-the-index-luke.com</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 8–10 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">The definitive free guide to SQL indexing. Explains B-tree indexes, composite index strategy, covering indexes, and EXPLAIN output. Read every single page.</div>
+        <a href="https://use-the-index-luke.com/" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-label">📚 Books</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">📖</div>
+          <div class="card-info">
+            <div class="card-name">SQL Antipatterns (Vol 1 & 2)</div>
+            <div class="card-provider">Bill Karwin — Pragmatic Programmers</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$45</span>
+          <span class="tag tag-time">⏱ Self-paced</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Learn what NOT to do — which turns out to be even more valuable than learning what to do. Game-changing for database design thinking. Every mistake you'll ever make is in here.</div>
+        <a href="https://pragprog.com/titles/bksqla/sql-antipatterns/" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+      <div class="card" style="border-top:2px solid var(--c2)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(74,158,255,.12)">📖</div>
+          <div class="card-info">
+            <div class="card-name">Database Design for Mere Mortals</div>
+            <div class="card-provider">Michael Hernandez — Addison Wesley</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$55</span>
+          <span class="tag tag-time">⏱ Self-paced</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Best book on relational database design and normalization — hands-on approach with real exercises. You'll design schemas instinctively after this.</div>
+        <a href="https://www.amazon.com/Database-Design-Mere-Mortals-Hands/dp/0136788041" target="_blank" class="card-link" style="background:rgba(74,158,255,.12);color:var(--c2);border:1px solid rgba(74,158,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="milestone" style="background:linear-gradient(135deg,rgba(74,158,255,.08),transparent);border:1px solid rgba(74,158,255,.25)">
+      <div class="milestone-icon" style="background:rgba(74,158,255,.15)">🎯</div>
+      <div>
+        <div class="milestone-label" style="color:var(--c2)">Phase 2 Milestone — Before Moving On</div>
+        <div class="milestone-text">Solve 20 LeetCode Medium SQL problems. Write a fully normalized 3NF database schema for a hospital or university system from scratch.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="phase-divider"></div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!--  PHASE 3 — ADVANCED               -->
+<!-- ═══════════════════════════════════ -->
+<section id="advanced">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-badge" style="background:rgba(255,107,53,.15)">◉</div>
+      <div class="sh-info">
+        <div class="sh-phase" style="color:var(--c3)">Phase 03 — Advanced</div>
+        <div class="sh-title" style="color:var(--c3)">PROCEDURES & TUNING</div>
+        <div class="sh-meta">Weeks 8–11 &nbsp;·&nbsp; ~50 hrs &nbsp;·&nbsp; Transactions · Stored Procedures · Triggers · EXPLAIN</div>
+      </div>
+      <div class="sh-num" style="color:var(--c3)">03</div>
+    </div>
+
+    <div class="cat-label">📹 Video Courses</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c3)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,107,53,.12)">🔄</div>
+          <div class="card-info">
+            <div class="card-name">Database Transactions & ACID Explained</div>
+            <div class="card-provider">Hussain Nasser · YouTube</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 1 hr</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Best visual explanation of ACID, isolation levels, and deadlocks on YouTube. Hussain Nasser draws diagrams in real-time that make these concepts click instantly.</div>
+        <a href="https://www.youtube.com/watch?v=pomxJOFVcQs" target="_blank" class="card-link" style="background:rgba(255,107,53,.12);color:var(--c3);border:1px solid rgba(255,107,53,.25)">
+          Watch Free <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c3)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,107,53,.12)">⚙️</div>
+          <div class="card-info">
+            <div class="card-name">PostgreSQL PL/pgSQL — Complete Course</div>
+            <div class="card-provider">Udemy</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$15</span>
+          <span class="tag tag-time">⏱ 8 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">The best course specifically on PL/pgSQL stored procedures, functions, and triggers. Dense, practical, with real-world business scenarios throughout.</div>
+        <a href="https://www.udemy.com/course/postgresql-plpgsql/" target="_blank" class="card-link" style="background:rgba(255,107,53,.12);color:var(--c3);border:1px solid rgba(255,107,53,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c3)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,107,53,.12)">🎓</div>
+          <div class="card-info">
+            <div class="card-name">SQL Server: Stored Procedures & Transactions</div>
+            <div class="card-provider">Pluralsight</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$29/mo</span>
+          <span class="tag tag-time">⏱ 4 hrs</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+        <div class="card-why">Industry-standard coverage of stored procedures, triggers, and transactions in SQL Server. Essential for enterprise & backend developer roles.</div>
+        <a href="https://www.pluralsight.com/courses/sql-server-stored-procedures" target="_blank" class="card-link" style="background:rgba(255,107,53,.12);color:var(--c3);border:1px solid rgba(255,107,53,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-label">🌐 Practice & 📚 Books & 🛠 Tools</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c3)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,107,53,.12)">💡</div>
+          <div class="card-info">
+            <div class="card-name">DataLemur — FAANG SQL Questions</div>
+            <div class="card-provider">datalemur.com</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ Ongoing</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Real SQL interview questions from FAANG companies with detailed solutions and explanations. Highly relevant to actual hiring processes at top tech firms.</div>
+        <a href="https://datalemur.com/" target="_blank" class="card-link" style="background:rgba(255,107,53,.12);color:var(--c3);border:1px solid rgba(255,107,53,.25)">
+          Start Solving <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c3)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,107,53,.12)">📖</div>
+          <div class="card-info">
+            <div class="card-name">SQL Performance Explained</div>
+            <div class="card-provider">Markus Winand — winand.at</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$30</span>
+          <span class="tag tag-time">⏱ Self-paced</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">The best book on SQL query optimization and indexing strategies. Concise, dense, and directly applicable. Every page will improve your query writing.</div>
+        <a href="https://sql-performance-explained.com/" target="_blank" class="card-link" style="background:rgba(255,107,53,.12);color:var(--c3);border:1px solid rgba(255,107,53,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c3)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,107,53,.12)">🛠</div>
+          <div class="card-info">
+            <div class="card-name">DBeaver Community Edition</div>
+            <div class="card-provider">dbeaver.io</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 30 min setup</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Best universal database GUI. Visual EXPLAIN plans, schema browser, query history, all SQL dialects. This is the professional tool DBAs actually use daily.</div>
+        <a href="https://dbeaver.io/" target="_blank" class="card-link" style="background:rgba(255,107,53,.12);color:var(--c3);border:1px solid rgba(255,107,53,.25)">
+          Download Free <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="milestone" style="background:linear-gradient(135deg,rgba(255,107,53,.08),transparent);border:1px solid rgba(255,107,53,.25)">
+      <div class="milestone-icon" style="background:rgba(255,107,53,.15)">🎯</div>
+      <div>
+        <div class="milestone-label" style="color:var(--c3)">Phase 3 Milestone — Before Moving On</div>
+        <div class="milestone-text">Build a complete banking transaction system with full ACID compliance, stored procedures for fund transfers, and audit triggers that log every balance change.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="phase-divider"></div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!--  PHASE 4 — EXPERT                 -->
+<!-- ═══════════════════════════════════ -->
+<section id="expert">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-badge" style="background:rgba(199,125,255,.15)">◎</div>
+      <div class="sh-info">
+        <div class="sh-phase" style="color:var(--c4)">Phase 04 — Expert</div>
+        <div class="sh-title" style="color:var(--c4)">ARCHITECTURE & SCALE</div>
+        <div class="sh-meta">Weeks 12–16 &nbsp;·&nbsp; ~70 hrs &nbsp;·&nbsp; Query Optimization · Partitioning · Data Warehouse · Real Projects</div>
+      </div>
+      <div class="sh-num" style="color:var(--c4)">04</div>
+    </div>
+
+    <div class="cat-label">📹 Video Courses</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">🏛</div>
+          <div class="card-info">
+            <div class="card-name">CMU 15-445: Database Engineering</div>
+            <div class="card-provider">Carnegie Mellon University · YouTube</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 40+ hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">World-class university course taught by top researchers. Deep internals: B-trees, buffer pools, query planning, concurrency control. This is the real thing — not a tutorial.</div>
+        <a href="https://www.youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Watch Free <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">📦</div>
+          <div class="card-info">
+            <div class="card-name">Data Warehouse Fundamentals</div>
+            <div class="card-provider">Udemy (Nikolai Schuler)</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$15</span>
+          <span class="tag tag-time">⏱ 7 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">Star schema, fact/dimension tables, slowly changing dimensions — all built from scratch. Perfect companion to the Kimball book. You'll design warehouses confidently after this.</div>
+        <a href="https://www.udemy.com/course/data-warehouse-fundamentals-for-beginners/" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">🔬</div>
+          <div class="card-info">
+            <div class="card-name">PGExercises — PostgreSQL Deep Dives</div>
+            <div class="card-provider">pgexercises.com</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 15–20 hrs</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">PostgreSQL-specific exercises that are structured, progressive, and deeply challenging. The most thorough free exercise platform specifically for PostgreSQL power users.</div>
+        <a href="https://pgexercises.com/" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Start Solving <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-label">📚 Books — Must-Reads for Senior Engineers</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">📕</div>
+          <div class="card-info">
+            <div class="card-name">Designing Data-Intensive Applications</div>
+            <div class="card-provider">Martin Kleppmann — O'Reilly</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$60</span>
+          <span class="tag tag-time">⏱ Self-paced</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">THE bible of data systems architecture. Every senior engineer must read this. Covers storage engines, replication, partitioning, transactions, and distributed systems. Life-changing.</div>
+        <a href="https://dataintensive.net/" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">📗</div>
+          <div class="card-info">
+            <div class="card-name">The Data Warehouse Toolkit, 3rd Ed.</div>
+            <div class="card-provider">Kimball & Ross — Wiley</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$65</span>
+          <span class="tag tag-time">⏱ Self-paced</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <div class="card-why">The definitive dimensional modeling bible. Used by every data engineer and BI architect on the planet. If you work with data warehouses, this is required reading.</div>
+        <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Open Resource <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-label">🎓 Certifications Worth Getting</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">🏅</div>
+          <div class="card-info">
+            <div class="card-name">HackerRank SQL Certificate</div>
+            <div class="card-provider">HackerRank — Advanced Level</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-time">⏱ 1–2 hrs</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+        <div class="card-why">Free, shareable, recognized by recruiters worldwide. Put it on your LinkedIn and resume immediately. Start with this — fastest ROI of any certification here.</div>
+        <a href="https://www.hackerrank.com/skills-verification/sql_advanced" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Get Certified <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">☁️</div>
+          <div class="card-info">
+            <div class="card-name">Google Data Analytics Certificate</div>
+            <div class="card-provider">Coursera / Google</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">~$49/mo</span>
+          <span class="tag tag-time">⏱ 6 months</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+        <div class="card-why">Industry-recognized certificate covering SQL, BigQuery, and data analysis. Excellent for career pivots into data analytics. Google's brand carries real weight with hiring managers.</div>
+        <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Enroll Now <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+      <div class="card" style="border-top:2px solid var(--c4)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(199,125,255,.12)">🔵</div>
+          <div class="card-info">
+            <div class="card-name">Microsoft DP-900: Azure Data Fundamentals</div>
+            <div class="card-provider">Microsoft Learn</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-paid">$165 exam</span>
+          <span class="tag tag-time">⏱ Self-paced</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+        <div class="card-why">Validates SQL + cloud database knowledge. Strong for enterprise and Microsoft-stack roles. Free prep materials available on Microsoft Learn.</div>
+        <a href="https://learn.microsoft.com/en-us/certifications/exams/dp-900" target="_blank" class="card-link" style="background:rgba(199,125,255,.12);color:var(--c4);border:1px solid rgba(199,125,255,.25)">
+          Learn More <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="milestone" style="background:linear-gradient(135deg,rgba(199,125,255,.08),transparent);border:1px solid rgba(199,125,255,.25)">
+      <div class="milestone-icon" style="background:rgba(199,125,255,.15)">🎯</div>
+      <div>
+        <div class="milestone-label" style="color:var(--c4)">Phase 4 Milestone — You've Made It</div>
+        <div class="milestone-text">Design and build a full e-commerce OR analytics data warehouse from scratch. Present your schema, explain every design decision, and publish it on GitHub.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="phase-divider"></div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!--  PHASE 5 — ONGOING                -->
+<!-- ═══════════════════════════════════ -->
+<section id="ongoing">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-badge" style="background:rgba(255,209,102,.15)">∞</div>
+      <div class="sh-info">
+        <div class="sh-phase" style="color:var(--c5)">Phase ∞ — Ongoing</div>
+        <div class="sh-title" style="color:var(--c5)">STAY SHARP</div>
+        <div class="sh-meta">Forever &nbsp;·&nbsp; Daily habit &nbsp;·&nbsp; Community · Projects · Blogs</div>
+      </div>
+      <div class="sh-num" style="color:var(--c5)">∞</div>
+    </div>
+
+    <div class="cat-label">🏘 Community & 📰 Blogs</div>
+    <div class="res-grid">
+      <div class="card" style="border-top:2px solid var(--c5)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,209,102,.1)">💬</div>
+          <div class="card-info">
+            <div class="card-name">DBA Stack Exchange</div>
+            <div class="card-provider">dba.stackexchange.com</div>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag tag-free">Free</span><span class="tag tag-time">⏱ Daily</span><span class="stars">★★★★★</span></div>
+        <div class="card-why">Expert-level Q&A answered by actual DBAs and database researchers. The quality of answers here is unmatched anywhere else on the internet. Bookmark and check daily.</div>
+        <a href="https://dba.stackexchange.com/" target="_blank" class="card-link" style="background:rgba(255,209,102,.1);color:var(--c5);border:1px solid rgba(255,209,102,.25)">
+          Join Community <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c5)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,209,102,.1)">📡</div>
+          <div class="card-info">
+            <div class="card-name">Planet PostgreSQL</div>
+            <div class="card-provider">planet.postgresql.org</div>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag tag-free">Free</span><span class="tag tag-time">⏱ Weekly</span><span class="stars">★★★★★</span></div>
+        <div class="card-why">Aggregated blog feed from PostgreSQL experts and core contributors worldwide. Always fresh, always expert-level. This is how you stay ahead of the curve.</div>
+        <a href="https://planet.postgresql.org/" target="_blank" class="card-link" style="background:rgba(255,209,102,.1);color:var(--c5);border:1px solid rgba(255,209,102,.25)">
+          Read Now <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c5)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,209,102,.1)">✍️</div>
+          <div class="card-info">
+            <div class="card-name">Haki Benita's Blog</div>
+            <div class="card-provider">hakibenita.com</div>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag tag-free">Free</span><span class="tag tag-time">⏱ Monthly</span><span class="stars">★★★★★</span></div>
+        <div class="card-why">Some of the best deep-dive SQL and PostgreSQL performance articles anywhere on the web. Every post is a masterclass. Save every single article you read here.</div>
+        <a href="https://hakibenita.com/" target="_blank" class="card-link" style="background:rgba(255,209,102,.1);color:var(--c5);border:1px solid rgba(255,209,102,.25)">
+          Read Blog <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+
+      <div class="card" style="border-top:2px solid var(--c5)">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,209,102,.1)">🗂</div>
+          <div class="card-info">
+            <div class="card-name">Kaggle Datasets + SQL</div>
+            <div class="card-provider">kaggle.com/datasets</div>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag tag-free">Free</span><span class="tag tag-time">⏱ Ongoing</span><span class="stars">★★★★★</span></div>
+        <div class="card-why">Download real-world datasets and build your own analytics projects. Publish your work publicly. Nothing builds credibility faster than a real project with real data on your GitHub.</div>
+        <a href="https://www.kaggle.com/datasets" target="_blank" class="card-link" style="background:rgba(255,209,102,.1);color:var(--c5);border:1px solid rgba(255,209,102,.25)">
+          Explore Datasets <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="milestone" style="background:linear-gradient(135deg,rgba(255,209,102,.08),transparent);border:1px solid rgba(255,209,102,.25)">
+      <div class="milestone-icon" style="background:rgba(255,209,102,.15)">🏆</div>
+      <div>
+        <div class="milestone-label" style="color:var(--c5)">Ongoing Milestone — Build Your Reputation</div>
+        <div class="milestone-text">Publish a SQL project on GitHub. Answer 10 questions on DBA Stack Exchange. Earn the HackerRank SQL Advanced certificate. Share your progress on LinkedIn.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ -->
+<!--  TIMELINE VISUAL                  -->
+<!-- ═══════════════════════════════════ -->
+<section id="timeline" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="timeline-section">
+      <div class="tl-heading">WEEK-BY-WEEK</div>
+      <div class="tl-sub">Your complete 16-week learning timeline</div>
+
+      <div class="tl-row">
+        <div class="tl-week-col">WK 1–3
+          <div class="tl-dot" style="background:var(--c1);border-color:var(--c1)"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-title" style="color:var(--c1)">◈ Beginner — Foundations</div>
+          <div class="tl-topics">
+            <span class="tl-topic" style="background:rgba(0,201,167,.12);color:var(--c1)">SQL Syntax</span>
+            <span class="tl-topic" style="background:rgba(0,201,167,.12);color:var(--c1)">SELECT & WHERE</span>
+            <span class="tl-topic" style="background:rgba(0,201,167,.12);color:var(--c1)">JOINs</span>
+            <span class="tl-topic" style="background:rgba(0,201,167,.12);color:var(--c1)">GROUP BY</span>
+          </div>
+          <div class="tl-desc">freeCodeCamp video · Khan Academy · SQLZoo · Install PostgreSQL</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-week-col">WK 4–7
+          <div class="tl-dot" style="background:var(--c2);border-color:var(--c2)"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-title" style="color:var(--c2)">◆ Intermediate — Power Queries</div>
+          <div class="tl-topics">
+            <span class="tl-topic" style="background:rgba(74,158,255,.12);color:var(--c2)">CTEs</span>
+            <span class="tl-topic" style="background:rgba(74,158,255,.12);color:var(--c2)">Window Functions</span>
+            <span class="tl-topic" style="background:rgba(74,158,255,.12);color:var(--c2)">Normalization</span>
+            <span class="tl-topic" style="background:rgba(74,158,255,.12);color:var(--c2)">Indexes</span>
+          </div>
+          <div class="tl-desc">Socratica YouTube · LeetCode Medium · StrataScratch · Use-The-Index-Luke</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-week-col">WK 8–11
+          <div class="tl-dot" style="background:var(--c3);border-color:var(--c3)"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-title" style="color:var(--c3)">◉ Advanced — Procedures & Tuning</div>
+          <div class="tl-topics">
+            <span class="tl-topic" style="background:rgba(255,107,53,.12);color:var(--c3)">Transactions</span>
+            <span class="tl-topic" style="background:rgba(255,107,53,.12);color:var(--c3)">Stored Procedures</span>
+            <span class="tl-topic" style="background:rgba(255,107,53,.12);color:var(--c3)">Triggers</span>
+            <span class="tl-topic" style="background:rgba(255,107,53,.12);color:var(--c3)">EXPLAIN ANALYZE</span>
+          </div>
+          <div class="tl-desc">Udemy PL/pgSQL · Hussain Nasser YouTube · DataLemur · DBeaver</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-week-col">WK 12–16
+          <div class="tl-dot" style="background:var(--c4);border-color:var(--c4)"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-title" style="color:var(--c4)">◎ Expert — Architecture & Scale</div>
+          <div class="tl-topics">
+            <span class="tl-topic" style="background:rgba(199,125,255,.12);color:var(--c4)">Query Optimization</span>
+            <span class="tl-topic" style="background:rgba(199,125,255,.12);color:var(--c4)">Partitioning</span>
+            <span class="tl-topic" style="background:rgba(199,125,255,.12);color:var(--c4)">Star Schema</span>
+            <span class="tl-topic" style="background:rgba(199,125,255,.12);color:var(--c4)">Real Projects</span>
+          </div>
+          <div class="tl-desc">CMU 15-445 · Kimball Book · DDIA · Kaggle Projects · Certifications</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-week-col">WK 17+
+          <div class="tl-dot" style="background:var(--c5);border-color:var(--c5)"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-title" style="color:var(--c5)">∞ Ongoing — Build & Contribute</div>
+          <div class="tl-topics">
+            <span class="tl-topic" style="background:rgba(255,209,102,.1);color:var(--c5)">Open Source</span>
+            <span class="tl-topic" style="background:rgba(255,209,102,.1);color:var(--c5)">Community</span>
+            <span class="tl-topic" style="background:rgba(255,209,102,.1);color:var(--c5)">Blogging</span>
+            <span class="tl-topic" style="background:rgba(255,209,102,.1);color:var(--c5)">Networking</span>
+          </div>
+          <div class="tl-desc">DBA StackExchange · Planet PostgreSQL · GitHub · LinkedIn</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FREE STARTER STRIP -->
+<div class="container">
+  <div class="starter-strip">
+    <div class="starter-title">START TODAY — 100% FREE</div>
+    <div class="starter-sub">Everything you need to begin · Zero cost · Zero excuses</div>
+    <div class="starter-steps">
+      <a href="https://www.postgresql.org/download/" target="_blank" class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-name">Install PostgreSQL</div>
+        <div class="step-meta">postgresql.org · Free · 30 min</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-name">Watch freeCodeCamp SQL</div>
+        <div class="step-meta">YouTube · Free · 4.5 hrs</div>
+      </a>
+      <a href="https://sqlzoo.net/" target="_blank" class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-name">Practice on SQLZoo</div>
+        <div class="step-meta">sqlzoo.net · Free · 10 hrs</div>
+      </a>
+      <a href="https://leetcode.com/problemset/database/" target="_blank" class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-name">Solve LeetCode SQL</div>
+        <div class="step-meta">leetcode.com · Free tier</div>
+      </a>
+      <a href="https://www.hackerrank.com/skills-verification/sql_advanced" target="_blank" class="step-card">
+        <div class="step-num">05</div>
+        <div class="step-name">Get Certified</div>
+        <div class="step-meta">HackerRank · Free · 1–2 hrs</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer style="flex-direction:column;gap:24px;padding:50px 40px;text-align:center;">
+
+  <!-- Built by credit -->
+  <div style="display:inline-flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(0,201,167,.1),rgba(74,158,255,.07));border:1px solid rgba(0,201,167,.25);border-radius:16px;padding:18px 32px;margin:0 auto;">
+    <div style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:22px;color:#000;flex-shrink:0;box-shadow:0 0 20px rgba(0,201,167,.4);">S</div>
+    <div style="text-align:left;">
+      <div style="font-family:var(--font-display);font-size:22px;letter-spacing:.08em;background:linear-gradient(90deg,var(--c1),var(--c2));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:4px;">SURENDRA MANTHRI</div>
+      <div style="font-family:var(--font-cond);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);">Designed &amp; Built this SQL Mastery Roadmap</div>
+    </div>
+  </div>
+
+  <div style="width:100%;height:1px;background:var(--line);"></div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;">
+    <div class="footer-logo">SQL MASTERY</div>
+    <div style="font-family:var(--font-cond);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Beginner → Intermediate → Advanced → Expert · 225+ Hours · 40+ Resources</div>
+    <div style="font-family:var(--font-cond);font-size:11px;letter-spacing:.08em;color:var(--muted);">Share this roadmap · Help others learn SQL 🚀</div>
+  </div>
+</footer>
+
+<script>
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.card, .milestone, .tl-row, .step-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.phase-strip-item');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(link => {
+      link.style.background = link.getAttribute('href') === '#' + current
+        ? 'rgba(255,255,255,0.04)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
