@@ -194,7 +194,7 @@ Step 5 → Get Certified           hackerrank.com/sql       (Free, 1-2 hrs)
 
 ---
 
-## 🎯 Who Is This For?
+## 🎯 Who Is This For learning?
 
 - 👨‍💻 **Developers** who want to write better database queries
 - 📊 **Data Analysts** preparing for SQL interviews
