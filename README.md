@@ -204,7 +204,7 @@ Step 5 → Get Certified           hackerrank.com/sql       (Free, 1-2 hrs)
 
 ---
 
-## 🏆 Certifications Covered
+## 🏆 Certifications Covered in this
 
 | Certification | Provider | Cost |
 |---|---|---|
