@@ -10,7 +10,7 @@
 
 <br/>
 
-**A complete, interactive SQL learning roadmap — from writing your first SELECT to architecting production-grade database systems.**
+**A complete, interactive SQL learning roadmap — from writing your first SELECT to architecting production-grade database systems..**
 
 <br/>
 
