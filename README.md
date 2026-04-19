@@ -45,7 +45,7 @@ Every resource includes:
 
 ## 📚 What's Inside
 
-The roadmap is divided into **5 phases** covering the complete SQL learning journey:
+The roadmap is divided into **5 phases** covering the complete SQL learning journey--
 
 ---
 
